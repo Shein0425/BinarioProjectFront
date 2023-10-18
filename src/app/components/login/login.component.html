@@ -1,0 +1,33 @@
+<!-- A wrapper for the login page containing the login form and a loading spinner. -->
+<div class="wrapper">
+    <!-- Display the login form if loading is false. -->
+    <div *ngIf="!loading" class="body">
+        <img class="logo" src="../../../assets/img/acceso.png" alt="Img Login">
+        <h1>Login</h1>
+        <form>
+            <mat-grid-list cols="1" rowHeight="80px">
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <!-- Input field for email. -->
+                        <input [(ngModel)]="email" type="email" matInput [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <!-- Input field for password. -->
+                        <input [(ngModel)]="password" type="password" matInput [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <!-- Button to initiate the login process. -->
+                    <button mat-raised-button color="primary" (click)="login()">Login</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </div>
+    
+    <!-- Display a spinner component when loading is true. -->
+    <app-spinner *ngIf="loading"></app-spinner>
+</div>

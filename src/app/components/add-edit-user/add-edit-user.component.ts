@@ -1,8 +1,7 @@
-import { Component, Inject, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { regUsers } from 'src/app/interface/users';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -13,76 +12,81 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class AddEditUserComponent implements OnInit {
   formUser: FormGroup;
-  titleAction: string = "New User"
-  buttonAction: string = "Save"
+  titleAction: string = "New User";
+  buttonAction: string = "Save";
   usersList: regUsers[] = [];
-
 
   constructor(
     private dialogReference: MatDialogRef<AddEditUserComponent>,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar,
     private _usersService: UsersService,
-    @Inject(MAT_DIALOG_DATA) public dataUser: regUsers
-
+    @Inject(MAT_DIALOG_DATA) public dataUser: regUsers,
   ) {
     this.formUser = this.fb.group({
       idusers: [''],
-      fname: ['',Validators.required],
-      lname: ['',Validators.required],
-      email: ['',Validators.required],
-    })
+      fname: ['', Validators.required],
+      lname: ['', Validators.required],
+      email: ['', Validators.required],
+    });
 
+    // Fetch the list of users for reference.
     this._usersService.getList().subscribe({
-      next:(data)=>{
+      next: (data) => {
         this.usersList = data;
-      },error:(e)=>{}
-    })
+      },
+      error: (e) => {}
+    });
   }
 
+  // Display a snackbar notification.
   showAlert(message: string, action: string) {
-    this._snackBar.open(message, action,{
-      horizontalPosition:"end",
+    this._snackBar.open(message, action, {
+      horizontalPosition: "end",
       verticalPosition: "top",
       duration: 3000
     });
   }
 
-  addEditUser(){
-    console.log(this.formUser.value)
+  // Add or edit a user depending on the action.
+  addEditUser() {
+    console.log(this.formUser.value);
 
     const model: regUsers = {
       idusers: 0,
       fname: this.formUser.value.fname,
       lname: this.formUser.value.lname,
       email: this.formUser.value.email
-    }
+    };
 
-    if(this.dataUser == null){
+    if (this.dataUser == null) {
+      // Add a new user.
       this._usersService.add(model).subscribe({
-        next:(data) => {
+        next: (data) => {
           this.showAlert("User created successfully!", "Success");
           this.dialogReference.close("Created");
-        },error:(e) => {
-          this.showAlert("User not created!","Error")
         },
-      })
-    }else{
+        error: (e) => {
+          this.showAlert("User not created!", "Error");
+        },
+      });
+    } else {
+      // Update an existing user.
       this._usersService.update(this.dataUser.idusers, model).subscribe({
-        next:(data) => {
-          this.showAlert("User update successfully!", "Success");
+        next: (data) => {
+          this.showAlert("User updated successfully!", "Success");
           this.dialogReference.close("Updated");
-        },error:(e) => {
-          this.showAlert("User not update!","Error")
-          
         },
-      })
+        error: (e) => {
+          this.showAlert("User not updated!", "Error");
+        },
+      });
     }
-
   }
 
   ngOnInit(): void {
-    if(this.dataUser){
+    if (this.dataUser) {
+      // Populate form fields with existing user data for editing.
       this.formUser.patchValue({
         idusers: this.dataUser.idusers,
         fname: this.dataUser.fname,

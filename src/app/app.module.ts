@@ -21,12 +21,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { AddEditUserComponent } from './components/add-edit-user/add-edit-user.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AddEditUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    HomeComponent,
+    LoginComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,9 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
     MatDialogModule,
     MatGridListModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule,
+    ToastrModule.forRoot()
     
   ],
   providers: [],

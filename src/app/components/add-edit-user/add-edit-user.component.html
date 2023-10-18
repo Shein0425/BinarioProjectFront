@@ -5,33 +5,37 @@
       <mat-grid-tile>
         <mat-form-field appearance="outline">
           <mat-label>ID (optional)</mat-label>
+          <!-- Input field for optional user ID. -->
           <input matInput placeholder="Example ID" formControlName="idusers" autocomplete="off">
         </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
         <mat-form-field appearance="outline">
           <mat-label>Enter First Name</mat-label>
+          <!-- Input field for entering the first name. -->
           <input matInput placeholder="Example Name" formControlName="fname" autocomplete="off">
         </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
         <mat-form-field appearance="outline">
           <mat-label>Enter Last Name</mat-label>
+          <!-- Input field for entering the last name. -->
           <input matInput placeholder="Example Name" formControlName="lname" autocomplete="off">
         </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
         <mat-form-field appearance="outline">
           <mat-label>Enter Email</mat-label>
+          <!-- Input field for entering the email. -->
           <input matInput placeholder="example@example.com" formControlName="email" autocomplete="off">
         </mat-form-field>
       </mat-grid-tile>
     </mat-grid-list>
   </form>
-
-
 </div>
 <div mat-dialog-actions>
+  <!-- Button to go back or cancel. -->
   <button mat-raised-button color="warn" mat-dialog-close>Back</button>
-  <button mat-raised-button color="primary"(click)="addEditUser()" [disabled]="formUser.invalid">{{buttonAction}}</button>
+  <!-- Button to add or edit the user, with disabled attribute for invalid form. -->
+  <button mat-raised-button color="primary" (click)="addEditUser()" [disabled]="formUser.invalid">{{buttonAction}}</button>
 </div>

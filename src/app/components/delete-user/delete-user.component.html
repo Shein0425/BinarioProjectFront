@@ -1,8 +1,11 @@
 <h1 mat-dialog-title>Delete User</h1>
 <div mat-dialog-content>
+    <!-- Display a message confirming the deletion of the user's first name. -->
     <h1>Are you sure you want to delete the user {{dataUser.fname}}?</h1>
 </div>
 <div mat-dialog-actions>
+    <!-- Button to cancel and go back. -->
     <button mat-raised-button color="warn" mat-dialog-close>Not, back</button>
+    <!-- Button to confirm the deletion of the user. -->
     <button mat-raised-button color="primary" cdkFocusInitial (click)="delete()">Yes, Delete</button>
 </div>

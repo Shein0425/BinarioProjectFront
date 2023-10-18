@@ -1,4 +1,7 @@
-.mat-form-field{
+/* Apply styles to all elements with the class "mat-form-field". */
+.mat-form-field {
+    /* Set the font size to 14 pixels with !important to ensure it takes precedence. */
     font-size: 14px !important;
+    /* Make the width of the form field occupy 100% of its container. */
     width: 100%;
 }
