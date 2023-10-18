@@ -1,28 +1,68 @@
-# Frontend
+# Angular Front-End Project Binario
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+## Description
 
-## Development server
+This is a front-end project built using Angular. It serves as a foundation for creating web applications with a sleek and modern user interface.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Angular framework for building robust web applications.
+- Material Design components for a polished and user-friendly interface.
+- Guards for user authentication and route protection.
+- Components for user management, data display, and form interactions.
+- Stylish CSS for responsive and visually appealing layouts.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
 
-## Build
+Before you begin, ensure you have met the following requirements:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js and npm (Node Package Manager) installed.
+- Angular CLI (Command Line Interface) installed globally. You can install it with `npm install -g @angular/cli`.
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository to your local machine:
 
-## Running end-to-end tests
+   ```
+   git clone https://github.com/Shein0425/BinarioProjectFront.git
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Navigate to the project directory:
 
-## Further help
+   ```
+   cd your-repo
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# BinarioProjectFront
+3. Install the project dependencies:
+
+   ```
+   npm install
+   ```
+
+## Usage
+
+1. Run the development server:
+
+   ```
+   ng serve || ng serve --o 
+   ```
+
+2. Open your web browser and navigate to `http://localhost:4200/login` to access the application.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature`.
+3. Make your changes and commit them: `git commit -m 'Add feature'`.
+4. Push your changes to your fork: `git push origin feature/your-feature`.
+5. Create a Pull Request (PR) to merge your changes into the main repository.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or need further assistance, please contact [luisqui300@gmail.com].
